@@ -15,12 +15,14 @@ func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
 	hh := handlers.NewHello(l)
 	gh := handlers.NewGoodBye(l)
+	ph := handlers.NewProducts(l)
 
 	// creating a new server mux
 
 	sm := http.NewServeMux()
 	sm.Handle("/", hh) // works just like http.HandleFunc which took a http.ResponseWriter and http.Request as parameters
 	sm.Handle("/goodbye", gh)
+	sm.Handle("/products", ph)
 
 	// creating a server in go. Its a function that takes some parameters
 	// This will enable granular control over timeouts for different types of paylods, idle timeouts, keepalives etc
