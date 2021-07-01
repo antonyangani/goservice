@@ -16,7 +16,6 @@ func main() {
 			return
 		}
 		fmt.Fprintf(rw, "Hello %s", d)
-		// log.Printf("The data: %s\n", d)
 	})
 	http.HandleFunc("/goodbye", func(rw http.ResponseWriter, r *http.Request) {
 		log.Println("Goodbye world")
